@@ -84,6 +84,11 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
+
+			var wft = GetComponent<WaitForTarget> ();
+			if (wft != null) {
+				wft.ShowWindow ();
+			}
         }
 
 

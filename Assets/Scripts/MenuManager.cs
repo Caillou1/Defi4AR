@@ -11,10 +11,11 @@ public class MenuManager : MonoBehaviour {
 
 	private Transform tf;
 
-	void Start() {
-		tf = transform;
+	public static MenuManager Instance;
 
-		ShowWindow (GameObject.Find ("Window1").gameObject);
+	void Start() {
+		Instance = this;
+		tf = transform;
 	}
 
 	public void LoadMain() {
