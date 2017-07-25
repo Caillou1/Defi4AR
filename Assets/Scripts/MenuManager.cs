@@ -18,6 +18,10 @@ public class MenuManager : MonoBehaviour {
 		ActionsList = new List<AAction> ();
 	}
 
+	void Start() {
+		//ShowWindow (tf.GetChild (0).gameObject);
+	}
+
 	public void RegisterAction(AAction a) {
 		ActionsList.Add (a);
 	}
@@ -57,7 +61,6 @@ public class MenuManager : MonoBehaviour {
 
 	public void NextPage() {
 		if (CurrentPage < Pages.Length - 1) {
-			Pages [CurrentPage].SetActive (false);
 			CurrentPage++;
 			Pages [CurrentPage].SetActive (true);
 		}
@@ -67,7 +70,6 @@ public class MenuManager : MonoBehaviour {
 		if (CurrentPage > 0) {
 			Pages [CurrentPage].SetActive (false);
 			CurrentPage--;
-			Pages [CurrentPage].SetActive (true);
 		}
 	}
 }
