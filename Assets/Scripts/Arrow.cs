@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class Arrow : MonoBehaviour {
+public class Arrow : AAction {
 	public GameObject ArrowHead;
 	public GameObject ArrowBody;
 	public Transform[] Waypoints;
@@ -22,6 +22,8 @@ public class Arrow : MonoBehaviour {
 	private Vector3 origin;
 
 	void Start () {
+		base.Start ();
+
 		tf = transform;
 		origin = tf.position;
 
@@ -31,21 +33,26 @@ public class Arrow : MonoBehaviour {
 		}
 
 		if (MoveAtStart)
-			StartMove ();
+			StartAction ();
 	}
 
-	public void StartMove() {
+	public override void StartAction() {
 		head = Instantiate (ArrowHead, tf.position, Quaternion.identity, tf);
 		tailroutine = SpawnTail ();
 		StartCoroutine (tailroutine);
 		pathTween = tf.DOPath (points, TimeToCompleteAnimation, PathType.CatmullRom, PathMode.Full3D, 5, new Color (Random.value, Random.value, Random.value, 1f)).SetLookAt (.01f , Vector3.forward, Vector3.up).SetEase(Ease.Linear).OnComplete (() => {
-			StopMove();
+			StopAction();
 			if(Loops)
-				StartMove();
+				StartAction();
 		});
 	}
 
-	public void StopMove() {
+	void Update() {
+		if(head != null)
+			head.transform.localRotation = Quaternion.Euler (Vector3.zero);
+	}
+
+	public override void StopAction() {
 		tf.position = origin;
 
 		if (pathTween != null)

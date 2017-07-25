@@ -5,17 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour {
 	private GameObject CurrentWindow;
-
 	private GameObject[] Pages;
 	private int CurrentPage;
-
 	private Transform tf;
+	private List<AAction> ActionsList;
 
 	public static MenuManager Instance;
 
-	void Start() {
+	void Awake() {
 		Instance = this;
 		tf = transform;
+		ActionsList = new List<AAction> ();
+	}
+
+	public void RegisterAction(AAction a) {
+		ActionsList.Add (a);
+	}
+
+	public void UnregisterAction(AAction a) {
+		ActionsList.Remove (a);
+	}
+
+	public void StopAllActions() {
+		foreach (var a in ActionsList) {
+			a.StopAction ();
+		}
 	}
 
 	public void LoadMain() {
