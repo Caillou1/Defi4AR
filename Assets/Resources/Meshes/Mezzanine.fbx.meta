@@ -95,6 +95,8 @@ ModelImporter:
     100174: Plane.051
     100176: Point.001
     100178: trou porte ascensseur
+    100180: "entr\xE9e gare.002"
+    100182: "entr\xE9e gare.003"
     400000: ascenseur
     400002: ascenseur.001
     400004: ascenseur.002
@@ -185,6 +187,8 @@ ModelImporter:
     400174: Plane.051
     400176: Point.001
     400178: trou porte ascensseur
+    400180: "entr\xE9e gare.002"
+    400182: "entr\xE9e gare.003"
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cube.003
@@ -441,6 +445,8 @@ ModelImporter:
     4300170: Plane.000
     4300172: "entr\xE9e gare"
     4300174: ligne controle
+    4300176: "entr\xE9e gare.002"
+    4300178: "entr\xE9e gare.003"
     7400000: ascenseur.003|ascenseurAction
     7400002: ascenseur.003|ascenseurAction.003
     7400004: ascenseur.003|ascenseurAction.004
@@ -470,6 +476,8 @@ ModelImporter:
     13700002: ascenseur.001
     13700004: ascenseur.002
     13700006: ascenseur.003
+    13700008: "entr\xE9e gare.002"
+    13700010: "entr\xE9e gare.003"
   materials:
     importMaterials: 1
     materialName: 0
@@ -480,6 +488,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

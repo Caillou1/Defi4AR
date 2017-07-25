@@ -18,10 +18,6 @@ public class MenuManager : MonoBehaviour {
 		ActionsList = new List<AAction> ();
 	}
 
-	void Start() {
-		//ShowWindow (tf.GetChild (0).gameObject);
-	}
-
 	public void RegisterAction(AAction a) {
 		ActionsList.Add (a);
 	}
@@ -41,17 +37,25 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void ShowWindow(GameObject window) {
-		CurrentWindow = window;
-		CurrentWindow.SetActive (true);
-		var pages = CurrentWindow.transform.Find ("Pages");
-		Pages = new GameObject[pages.childCount];
+		if (CurrentWindow != window) {
+			CurrentWindow = window;
+			CurrentWindow.SetActive (true);
+			var pages = CurrentWindow.transform.Find ("Pages");
+			Pages = new GameObject[pages.childCount - 1];
 
-		for (int i = 0; i < Pages.Length; i++) {
-			Pages [i] = pages.GetChild (i).gameObject;
-			Pages [i].SetActive (false);
+			foreach (var action in CurrentWindow.GetComponentsInChildren<ActionList>())
+				action.StopActions ();
+
+			for (int i = 1; i <= Pages.Length; i++) {
+				Pages [i - 1] = pages.GetChild (i).gameObject;
+				Pages [i - 1].SetActive (false);
+			}
+			Pages [0].SetActive (true);
+			var al = Pages [0].GetComponent<ActionList> ();
+			if (al != null)
+				al.StartActions ();
+			CurrentPage = 0;
 		}
-		Pages [0].SetActive (true);
-		CurrentPage = 0;
 	}
 
 	public void CloseWindow() {
@@ -61,15 +65,58 @@ public class MenuManager : MonoBehaviour {
 
 	public void NextPage() {
 		if (CurrentPage < Pages.Length - 1) {
+			if (CurrentPage > 0) {
+				var al = Pages [CurrentPage].GetComponent<ActionList> ();
+				if (al != null) {
+					al.StopActions ();
+				}
+			}
+
 			CurrentPage++;
 			Pages [CurrentPage].SetActive (true);
+
+			var al2 = Pages [CurrentPage].GetComponent<ActionList> ();
+			if (al2 != null)
+				al2.StartActions ();
 		}
 	}
 
 	public void PreviousPage() {
 		if (CurrentPage > 0) {
+			if (CurrentPage < Pages.Length) {
+				var al = Pages [CurrentPage].GetComponent<ActionList> ();
+				if (al != null) {
+					al.StopActions ();
+				}
+			}
+
 			Pages [CurrentPage].SetActive (false);
 			CurrentPage--;
+
+			var al2 = Pages [CurrentPage].GetComponent<ActionList> ();
+			if (al2 != null)
+				al2.StartActions ();
+		}
+	}
+
+	public void PreviousPage(bool DisableNextPages) {
+		if (DisableNextPages)
+			PreviousPage ();
+		else {
+			if (CurrentPage > 0) {
+				if (CurrentPage < Pages.Length) {
+					var al = Pages [CurrentPage].GetComponent<ActionList> ();
+					if (al != null) {
+						al.StopActions ();
+					}
+				}
+
+				CurrentPage--;
+
+				var al2 = Pages [CurrentPage].GetComponent<ActionList> ();
+				if (al2 != null)
+					al2.StartActions ();
+			}
 		}
 	}
 }

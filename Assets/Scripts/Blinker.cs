@@ -13,7 +13,7 @@ public class Blinker : AAction {
 	public bool BlinkAtStart = true;
 
 	private Material mat;
-
+	private bool IsEmissiveAtStart;
 	private IEnumerator BlinkRoutine;
 
 	void Start () {
@@ -23,6 +23,12 @@ public class Blinker : AAction {
 			mat = MaterialToBlink;
 		} else {
 			mat = GetComponent<MeshRenderer> ().material;
+		}
+
+		IsEmissiveAtStart = mat.IsKeywordEnabled ("_EMISSION");
+
+		if (IsEmissiveAtStart) {
+			BlinkColor = mat.GetColor ("_EmissionColor");
 		}
 
 		if (BlinkAtStart)
@@ -36,7 +42,10 @@ public class Blinker : AAction {
 	}
 
 	public override void StopAction() {
-		mat.DisableKeyword ("_EMISSION");
+		if (!IsEmissiveAtStart)
+			mat.DisableKeyword ("_EMISSION");
+		else
+			mat.SetColor ("_EmissionColor", BlinkColor);
 		if (BlinkRoutine != null)
 			StopCoroutine (BlinkRoutine);
 	}
