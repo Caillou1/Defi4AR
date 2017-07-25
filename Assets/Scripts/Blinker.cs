@@ -2,31 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
-public class Blinker : MonoBehaviour {
-
-	public float BlinkSpeed;
-	public Color BlinkColor;
-	public bool BlinkAtStart;
+public class Blinker : AAction {
+	public bool ChooseMaterialManually;
+	[ShowIf("ChooseMaterialManually")]
+	public Material MaterialToBlink;
+	public float BlinkSpeed = 3f;
+	public Color BlinkColor = Color.white;
+	public bool BlinkAtStart = true;
 
 	private Material mat;
 
 	private IEnumerator BlinkRoutine;
 
 	void Start () {
-		mat = GetComponent<MeshRenderer> ().material;
+		base.Start ();
+
+		if (ChooseMaterialManually) {
+			mat = MaterialToBlink;
+		} else {
+			mat = GetComponent<MeshRenderer> ().material;
+		}
 
 		if (BlinkAtStart)
-			StartBlink ();
+			StartAction ();
 	}
 
-	public void StartBlink() {
+	public override void StartAction() {
 		mat.EnableKeyword("_EMISSION");
 		BlinkRoutine = Blink ();
 		StartCoroutine (BlinkRoutine);
 	}
 
-	public void StopBlink() {
+	public override void StopAction() {
 		mat.DisableKeyword ("_EMISSION");
 		if (BlinkRoutine != null)
 			StopCoroutine (BlinkRoutine);
