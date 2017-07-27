@@ -69,7 +69,7 @@ public class Arrow : AAction {
 		while (true) {
 			yield return new WaitForSeconds (TimeBetweenSquares);
 			var obj = Instantiate (ArrowBody, tf.position, Quaternion.identity);
-			obj.transform.DOScale (Vector3.zero, ScaleDownTime).OnComplete (() => Destroy(obj));
+			obj.transform.DOScale (Vector3.zero, ScaleDownTime).OnComplete (() => Destroy (obj));
 		}
 	}
 }
