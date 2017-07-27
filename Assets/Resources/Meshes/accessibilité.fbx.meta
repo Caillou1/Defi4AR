@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 396b8f7f1d1bb44d3ba8785a5d9a107d
 timeCreated: 1501159560
+=======
+guid: 2304138295988a0499fa09f7b5b6e9ec
+timeCreated: 1501159891
+>>>>>>> 26a72060c85ee99d430746b2bd1b7ddf9a745fe1
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -14,8 +19,11 @@ ModelImporter:
     4300000: Plane
     7400000: "Plane|accessibillit\xE9"
     7400002: Plane|Untitled.001
+<<<<<<< HEAD
     7400004: "Plane|accessibillit\xE9 (1)"
     7400006: "Plane|accessibillit\xE9 (2)"
+=======
+>>>>>>> 26a72060c85ee99d430746b2bd1b7ddf9a745fe1
     9500000: //RootNode
     13700000: Plane
   materials:
@@ -40,6 +48,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: "Plane|accessibillit\xE9"
@@ -143,6 +152,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> 26a72060c85ee99d430746b2bd1b7ddf9a745fe1
     isReadable: 1
   meshes:
     lODScreenPercentages: []
