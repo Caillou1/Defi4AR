@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 2304138295988a0499fa09f7b5b6e9ec
-=======
-guid: 396b8f7f1d1bb44d3ba8785a5d9a107d
->>>>>>> c8551b6ee61318759a4ee94834ac7e0212f6e51a
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -15,12 +11,7 @@ ModelImporter:
     400004: Plane
     4300000: Plane
     7400000: "Plane|accessibillit\xE9"
-<<<<<<< HEAD
     7400002: Plane|Untitled.001
-=======
-    7400002: "Plane|accessibillit\xE9 (1)"
-    7400004: "Plane|accessibillit\xE9 (2)"
->>>>>>> c8551b6ee61318759a4ee94834ac7e0212f6e51a
     9500000: //RootNode
     13700000: Plane
   materials:
@@ -45,113 +36,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-<<<<<<< HEAD
     clipAnimations: []
-=======
-    clipAnimations:
-    - serializedVersion: 16
-      name: "Plane|accessibillit\xE9"
-      takeName: "Plane|accessibillit\xE9"
-      firstFrame: 0
-      lastFrame: 24
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Lamp
-        weight: 1
-      - path: Plane
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: "Plane|accessibillit\xE9 (1)"
-      takeName: "Plane|accessibillit\xE9"
-      firstFrame: 28
-      lastFrame: 35
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Lamp
-        weight: 1
-      - path: Plane
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: "Plane|accessibillit\xE9 (2)"
-      takeName: "Plane|accessibillit\xE9"
-      firstFrame: 35
-      lastFrame: 48
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Lamp
-        weight: 1
-      - path: Plane
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
->>>>>>> c8551b6ee61318759a4ee94834ac7e0212f6e51a
     isReadable: 1
   meshes:
     lODScreenPercentages: []
