@@ -8,6 +8,7 @@ public class Presentation : AAction {
 	public float TimeBetween = 1f;
 	public bool ShowAtStart = true;
 	public bool BackAndForth = true;
+	public float ScaleDuration = .5f;
 
 	private int currentChild;
 	private int previousChild;
@@ -46,26 +47,45 @@ public class Presentation : AAction {
 	public void Next() {
 		if(currentChild < children.Length - 1) {
 			previousChild = currentChild;
-			children [previousChild].SetActive (false);
+			DisableChild (previousChild);
 			currentChild ++;
-			children [currentChild].SetActive (true);
+			EnableChild (currentChild);
 		}
 	}
 
 	public void Previous() {
 		if(currentChild > 0) {
 			previousChild = currentChild;
-			children [previousChild].SetActive (false);
+			DisableChild (previousChild);
 			currentChild --;
-			children [currentChild].SetActive (true);
+			EnableChild (currentChild);
 		}
 	}
 
+	void EnableChild(int i) {
+		var tf = children [i].transform;
+		var scale = tf.localScale;
+		tf.localScale = Vector3.zero;
+
+		children [i].transform.DOScale (scale, ScaleDuration);
+		children [i].SetActive (true);
+	}
+
+	void DisableChild(int i) {
+		var tf = children [i].transform;
+		var scale = tf.localScale;
+
+		children [i].transform.DOScale (Vector3.zero, ScaleDuration).OnComplete(() => {
+			children [i].SetActive (false);
+			tf.localScale = scale;
+		});
+	}
+
 	IEnumerator ShowNext() {
-		if(previousChild > -1)
-			children [previousChild].SetActive (false);
-		
-		children [currentChild].SetActive (true);
+		if (previousChild > -1)
+			DisableChild (previousChild);
+
+		EnableChild (currentChild);
 
 		yield return new WaitForSeconds (TimeBetween);
 
