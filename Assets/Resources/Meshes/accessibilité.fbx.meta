@@ -1,14 +1,21 @@
 fileFormatVersion: 2
-guid: 22fe51b992185fb4cba739c2ba65a482
+guid: 2304138295988a0499fa09f7b5b6e9ec
+timeCreated: 1501159891
+licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Lamp
+    100004: Plane
     400000: //RootNode
-    4300000: "entr\xE9e gare.002"
-    7400000: "entr\xE9e gare.002|Action"
+    400002: Lamp
+    400004: Plane
+    4300000: Plane
+    7400000: "Plane|accessibillit\xE9"
+    7400002: Plane|Untitled.001
     9500000: //RootNode
-    13700000: //RootNode
+    13700000: Plane
   materials:
     importMaterials: 1
     materialName: 0
@@ -35,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
