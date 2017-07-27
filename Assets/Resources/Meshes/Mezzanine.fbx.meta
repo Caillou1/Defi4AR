@@ -97,6 +97,8 @@ ModelImporter:
     100178: trou porte ascensseur
     100180: "entr\xE9e gare.002"
     100182: "entr\xE9e gare.003"
+    100184: bandes podotactile
+    100186: Spot
     400000: ascenseur
     400002: ascenseur.001
     400004: ascenseur.002
@@ -189,6 +191,8 @@ ModelImporter:
     400178: trou porte ascensseur
     400180: "entr\xE9e gare.002"
     400182: "entr\xE9e gare.003"
+    400184: bandes podotactile
+    400186: Spot
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cube.003
@@ -273,6 +277,7 @@ ModelImporter:
     2300162: Plane.050
     2300164: Plane.051
     2300166: trou porte ascensseur
+    2300168: bandes podotactile
     3300000: Cube.001
     3300002: Cube.002
     3300004: Cube.003
@@ -357,6 +362,7 @@ ModelImporter:
     3300162: Plane.050
     3300164: Plane.051
     3300166: trou porte ascensseur
+    3300168: bandes podotactile
     4300000: Espace mezzanine.001
     4300002: Espace mezzanine
     4300004: Espace vertical
@@ -447,6 +453,7 @@ ModelImporter:
     4300174: ligne controle
     4300176: "entr\xE9e gare.002"
     4300178: "entr\xE9e gare.003"
+    4300180: bandes podotactile
     7400000: ascenseur.003|ascenseurAction
     7400002: ascenseur.003|ascenseurAction.003
     7400004: ascenseur.003|ascenseurAction.004
