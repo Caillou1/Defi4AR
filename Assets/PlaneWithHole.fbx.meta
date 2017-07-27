@@ -1,21 +1,16 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 22fe51b992185fb4cba739c2ba65a482
-timeCreated: 1500994780
-=======
-guid: 8096e28c8aa6848bab8c12e0741b93c4
-timeCreated: 1500992671
->>>>>>> d7374a7fad8dd11476db9ad5230c48084725eb9b
+guid: ce3cefc1bfee046cca878f9d62b12051
+timeCreated: 1501058885
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    4300000: "entr\xE9e gare.002"
-    7400000: "entr\xE9e gare.002|Action"
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pPlane1
     9500000: //RootNode
-    13700000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
