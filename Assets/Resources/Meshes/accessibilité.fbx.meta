@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 2304138295988a0499fa09f7b5b6e9ec
 timeCreated: 1501226969
 licenseType: Free
+=======
+guid: 396b8f7f1d1bb44d3ba8785a5d9a107d
+>>>>>>> aae7bf3cb728fa14839275a37980032ecbc68275
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -9,6 +13,11 @@ ModelImporter:
     400000: //RootNode
     4300000: Plane
     7400000: "Plane|accessibillit\xE9"
+<<<<<<< HEAD
+=======
+    7400002: "Plane|accessibillit\xE9 (1)"
+    7400004: "Plane|accessibillit\xE9 (2)"
+>>>>>>> aae7bf3cb728fa14839275a37980032ecbc68275
     9500000: //RootNode
     13700000: //RootNode
   materials:
