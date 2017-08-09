@@ -114,6 +114,7 @@ ModelImporter:
     100212: Cube.029
     100214: Cube.030
     100216: Cube.036
+    100218: surbrillance
     400000: ascenseur
     400002: ascenseur.001
     400004: ascenseur.002
@@ -223,6 +224,7 @@ ModelImporter:
     400212: Cube.029
     400214: Cube.030
     400216: Cube.036
+    400218: surbrillance
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cube.003
@@ -323,6 +325,7 @@ ModelImporter:
     2300194: Cube.029
     2300196: Cube.030
     2300198: Cube.036
+    2300200: surbrillance
     3300000: Cube.001
     3300002: Cube.002
     3300004: Cube.003
@@ -423,6 +426,7 @@ ModelImporter:
     3300194: Cube.029
     3300196: Cube.030
     3300198: Cube.036
+    3300200: surbrillance
     4300000: Espace mezzanine.001
     4300002: Espace mezzanine
     4300004: Espace vertical
@@ -529,6 +533,7 @@ ModelImporter:
     4300206: Cube.026
     4300208: Cube.021
     4300210: Cube
+    4300212: surbrillance
     7400000: ascenseur.003|ascenseurAction
     7400002: ascenseur.003|ascenseurAction.003
     7400004: ascenseur.003|ascenseurAction.004
