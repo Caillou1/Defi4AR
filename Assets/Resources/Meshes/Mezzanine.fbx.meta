@@ -99,6 +99,21 @@ ModelImporter:
     100182: "entr\xE9e gare.003"
     100184: bandes podotactile
     100186: Spot
+    100188: Cube.000
+    100190: Cube.005
+    100192: Cube.006
+    100194: Cube.007
+    100196: Cube.012
+    100198: Cube.013
+    100200: Cube.018
+    100202: Cube.019
+    100204: Cube.020
+    100206: Cube
+    100208: Cube.021
+    100210: Cube.026
+    100212: Cube.029
+    100214: Cube.030
+    100216: Cube.036
     400000: ascenseur
     400002: ascenseur.001
     400004: ascenseur.002
@@ -193,6 +208,21 @@ ModelImporter:
     400182: "entr\xE9e gare.003"
     400184: bandes podotactile
     400186: Spot
+    400188: Cube.000
+    400190: Cube.005
+    400192: Cube.006
+    400194: Cube.007
+    400196: Cube.012
+    400198: Cube.013
+    400200: Cube.018
+    400202: Cube.019
+    400204: Cube.020
+    400206: Cube
+    400208: Cube.021
+    400210: Cube.026
+    400212: Cube.029
+    400214: Cube.030
+    400216: Cube.036
     2300000: Cube.001
     2300002: Cube.002
     2300004: Cube.003
@@ -278,6 +308,21 @@ ModelImporter:
     2300164: Plane.051
     2300166: trou porte ascensseur
     2300168: bandes podotactile
+    2300170: Cube.000
+    2300172: Cube.005
+    2300174: Cube.006
+    2300176: Cube.007
+    2300178: Cube.012
+    2300180: Cube.013
+    2300182: Cube.018
+    2300184: Cube.019
+    2300186: Cube.020
+    2300188: Cube
+    2300190: Cube.021
+    2300192: Cube.026
+    2300194: Cube.029
+    2300196: Cube.030
+    2300198: Cube.036
     3300000: Cube.001
     3300002: Cube.002
     3300004: Cube.003
@@ -363,6 +408,21 @@ ModelImporter:
     3300164: Plane.051
     3300166: trou porte ascensseur
     3300168: bandes podotactile
+    3300170: Cube.000
+    3300172: Cube.005
+    3300174: Cube.006
+    3300176: Cube.007
+    3300178: Cube.012
+    3300180: Cube.013
+    3300182: Cube.018
+    3300184: Cube.019
+    3300186: Cube.020
+    3300188: Cube
+    3300190: Cube.021
+    3300192: Cube.026
+    3300194: Cube.029
+    3300196: Cube.030
+    3300198: Cube.036
     4300000: Espace mezzanine.001
     4300002: Espace mezzanine
     4300004: Espace vertical
@@ -454,6 +514,21 @@ ModelImporter:
     4300176: "entr\xE9e gare.002"
     4300178: "entr\xE9e gare.003"
     4300180: bandes podotactile
+    4300182: Cube.013
+    4300184: Cube.012
+    4300186: Cube.007
+    4300188: Cube.006
+    4300190: Cube.005
+    4300192: Cube.000
+    4300194: Cube.020
+    4300196: Cube.019
+    4300198: Cube.018
+    4300200: Cube.036
+    4300202: Cube.030
+    4300204: Cube.029
+    4300206: Cube.026
+    4300208: Cube.021
+    4300210: Cube
     7400000: ascenseur.003|ascenseurAction
     7400002: ascenseur.003|ascenseurAction.003
     7400004: ascenseur.003|ascenseurAction.004

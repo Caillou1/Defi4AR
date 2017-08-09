@@ -1,16 +1,22 @@
 fileFormatVersion: 2
 guid: f1ffddd8cb38dba46bbef0940474a981
-timeCreated: 1498809305
+timeCreated: 1501845141
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Plane
+    100004: Sun
     400000: //RootNode
+    400002: Plane
+    400004: Sun
     4300000: Plane
     7400000: Plane|ascenseur
+    7400002: Plane|ascenseurAction
+    7400004: Plane|KeyAction
     9500000: //RootNode
-    13700000: //RootNode
+    13700000: Plane
   materials:
     importMaterials: 1
     materialName: 0
@@ -21,6 +27,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -31,37 +39,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Plane|ascenseur
-      takeName: Plane|ascenseur
-      firstFrame: 0
-      lastFrame: 49
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
