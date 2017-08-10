@@ -59,7 +59,7 @@ public class Blinker : AAction {
 
 			Color finalColor = BlinkColor * Mathf.LinearToGammaSpace (emission);
 
-			mat.SetColor ("_EmissionColor", finalColor);
+			mat.SetColor ("_Color", finalColor);
 
 			yield return new WaitForEndOfFrame ();
 		}

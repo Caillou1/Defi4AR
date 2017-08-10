@@ -12,6 +12,7 @@ public class ActionList : MonoBehaviour {
 
 	public void StopActions() {
 		foreach (var a in ActionsList)
-			a.StopAction ();
+			if(a!=null)
+				a.StopAction ();
 	}
 }
