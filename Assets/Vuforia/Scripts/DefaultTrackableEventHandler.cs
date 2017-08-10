@@ -110,6 +110,11 @@ namespace Vuforia
             }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
+
+			var wft = GetComponent<WaitForTarget> ();
+			if (wft != null) {
+				wft.HideLights ();
+			}
         }
 
         #endregion // PRIVATE_METHODS
