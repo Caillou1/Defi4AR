@@ -38,6 +38,7 @@ public class MenuManager : MonoBehaviour {
 
 	public void ShowWindow(GameObject window) {
 		if (CurrentWindow != window) {
+			CloseWindow ();
 			CurrentWindow = window;
 			CurrentWindow.SetActive (true);
 			var pages = CurrentWindow.transform.Find ("Pages");
@@ -59,7 +60,8 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void CloseWindow() {
-		CurrentWindow.SetActive (false);
+		if(CurrentWindow != null)
+			CurrentWindow.SetActive (false);
 		CurrentWindow = null;
 	}
 

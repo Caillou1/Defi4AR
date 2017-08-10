@@ -15,10 +15,9 @@ public class Blinker : AAction {
 	private Material mat;
 	private bool IsEmissiveAtStart;
 	private IEnumerator BlinkRoutine;
+	private bool isStarted = false;
 
-	void Start () {
-		base.Start ();
-
+	void Awake () {
 		if (ChooseMaterialManually) {
 			mat = MaterialToBlink;
 		} else {
@@ -39,15 +38,19 @@ public class Blinker : AAction {
 		mat.EnableKeyword("_EMISSION");
 		BlinkRoutine = Blink ();
 		StartCoroutine (BlinkRoutine);
+		isStarted = true;
 	}
 
 	public override void StopAction() {
-		if (!IsEmissiveAtStart)
-			mat.DisableKeyword ("_EMISSION");
-		else
-			mat.SetColor ("_EmissionColor", BlinkColor);
-		if (BlinkRoutine != null)
-			StopCoroutine (BlinkRoutine);
+		if (isStarted) {
+			isStarted = false;
+			if (!IsEmissiveAtStart)
+				mat.DisableKeyword ("_EMISSION");
+			else
+				mat.SetColor ("_EmissionColor", BlinkColor);
+			if (BlinkRoutine != null)
+				StopCoroutine (BlinkRoutine);
+		}
 	}
 
 	IEnumerator Blink() {
