@@ -8,11 +8,13 @@ public class AnimatorPlayer : AAction {
 
 	public override void StartAction ()
 	{
-		anim.SetBool (NextParameter, true);
+		if(anim != null)
+			anim.SetBool (NextParameter, true);
 	}
 
 	public override void StopAction ()
 	{
-		anim.SetBool (NextParameter, false);
+		if(anim != null)
+			anim.SetBool (NextParameter, false);
 	}
 }
