@@ -47,7 +47,7 @@ public class Blinker : AAction {
 			if (!IsEmissiveAtStart)
 				mat.DisableKeyword ("_EMISSION");
 			else
-				mat.SetColor ("_EmissionColor", BlinkColor);
+				mat.SetColor ("_Color", BlinkColor);
 			if (BlinkRoutine != null)
 				StopCoroutine (BlinkRoutine);
 		}
