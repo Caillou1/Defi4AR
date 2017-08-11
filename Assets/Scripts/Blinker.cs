@@ -44,10 +44,10 @@ public class Blinker : AAction {
 	public override void StopAction() {
 		if (isStarted) {
 			isStarted = false;
-			if (!IsEmissiveAtStart)
+			mat.SetColor ("_Color", BlinkColor);
+			if (!IsEmissiveAtStart) {
 				mat.DisableKeyword ("_EMISSION");
-			else
-				mat.SetColor ("_Color", BlinkColor);
+			}
 			if (BlinkRoutine != null)
 				StopCoroutine (BlinkRoutine);
 		}

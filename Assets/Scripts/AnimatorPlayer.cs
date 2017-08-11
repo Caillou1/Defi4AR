@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateTrigger : AAction {
+public class AnimatorPlayer : AAction {
 	public Animator anim;
-	public string nextTrigger = "Trigger";
-	public string backTrigger = "Back";
+	public string NextParameter;
 
 	public override void StartAction ()
 	{
-		anim.SetTrigger (nextTrigger);
+		anim.SetBool (NextParameter, true);
 	}
 
 	public override void StopAction ()
 	{
-		anim.SetTrigger (backTrigger);
+		anim.SetBool (NextParameter, false);
 	}
 }

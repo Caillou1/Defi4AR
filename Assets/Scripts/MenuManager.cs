@@ -60,9 +60,14 @@ public class MenuManager : MonoBehaviour {
 	}
 
 	public void CloseWindow() {
-		if(CurrentWindow != null)
+		if (CurrentWindow != null) {
+			var al = Pages [CurrentPage].GetComponent<ActionList> ();
+			if (al != null)
+				al.StopActions ();
+			
 			CurrentWindow.SetActive (false);
-		CurrentWindow = null;
+			CurrentWindow = null;
+		}
 	}
 
 	public void NextPage() {
