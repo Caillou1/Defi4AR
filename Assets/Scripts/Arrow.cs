@@ -13,7 +13,7 @@ public class Arrow : AAction {
 	public bool MoveAtStart = true;
 	public bool Loops = true;
 
-
+	private bool running = false;
 	private Transform tf;
 	private Vector3[] points;
 	private IEnumerator tailroutine;
@@ -37,6 +37,7 @@ public class Arrow : AAction {
 	}
 
 	public override void StartAction() {
+		running = true;
 		head = Instantiate (ArrowHead, tf.position, Quaternion.identity, tf);
 		tailroutine = SpawnTail ();
 		StartCoroutine (tailroutine);
@@ -55,14 +56,17 @@ public class Arrow : AAction {
 	public override void StopAction() {
 		tf.position = origin;
 
-		if (pathTween != null)
+		if (pathTween != null) {
+			pathTween.Complete ();
 			pathTween.Pause ();
+		}
 
 		if (tailroutine != null)
 			StopCoroutine (tailroutine);
 
 		if(head != null)
 			Destroy (head);
+		Debug.Log ("Stopped Arrow");
 	}
 
 	IEnumerator SpawnTail() {

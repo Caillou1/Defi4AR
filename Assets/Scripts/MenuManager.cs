@@ -56,6 +56,9 @@ public class MenuManager : MonoBehaviour {
 			if (al != null)
 				al.StartActions ();
 			CurrentPage = 0;
+		} else {
+			var al = Pages [CurrentPage].GetComponent<ActionList> ();
+			al.StartActions ();
 		}
 	}
 

@@ -111,6 +111,8 @@ namespace Vuforia
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
 
+			MenuManager.Instance.StopAllActions ();
+
 			var wft = GetComponent<WaitForTarget> ();
 			if (wft != null) {
 				wft.HideLights ();
