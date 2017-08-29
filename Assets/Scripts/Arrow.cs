@@ -21,6 +21,8 @@ public class Arrow : AAction {
 	private GameObject head;
 	private Vector3 origin;
 
+	private List<GameObject> TailObjects;
+
 	void Start () {
 		base.Start ();
 
@@ -32,6 +34,8 @@ public class Arrow : AAction {
 			points [i] = Waypoints [i].position;
 		}
 
+		TailObjects = new List<GameObject> ();
+
 		if (MoveAtStart)
 			StartAction ();
 	}
@@ -41,10 +45,16 @@ public class Arrow : AAction {
 		head = Instantiate (ArrowHead, tf.position, Quaternion.identity, tf);
 		tailroutine = SpawnTail ();
 		StartCoroutine (tailroutine);
+		LaunchArrow ();
+	}
+
+	void LaunchArrow() {
+		tf.position = origin;
 		pathTween = tf.DOPath (points, TimeToCompleteAnimation, PathType.CatmullRom, PathMode.Full3D, 5, new Color (Random.value, Random.value, Random.value, 1f)).SetLookAt (.01f , Vector3.forward, Vector3.up).SetEase(Ease.Linear).OnComplete (() => {
-			StopAction();
 			if(Loops)
-				StartAction();
+				LaunchArrow();
+			else
+				StopAction();
 		});
 	}
 
@@ -54,11 +64,17 @@ public class Arrow : AAction {
 	}
 
 	public override void StopAction() {
+		running = false;
 		tf.position = origin;
+
+		foreach (var obj in TailObjects) {
+			Destroy (obj);
+		}
+		TailObjects.Clear ();
 
 		if (pathTween != null) {
 			pathTween.Complete ();
-			pathTween.Pause ();
+			pathTween.Kill ();
 		}
 
 		if (tailroutine != null)
@@ -66,14 +82,17 @@ public class Arrow : AAction {
 
 		if(head != null)
 			Destroy (head);
-		Debug.Log ("Stopped Arrow");
 	}
 
 	IEnumerator SpawnTail() {
-		while (true) {
+		while (running) {
 			yield return new WaitForSeconds (TimeBetweenSquares);
 			var obj = Instantiate (ArrowBody, tf.position, Quaternion.identity);
-			obj.transform.DOScale (Vector3.zero, ScaleDownTime).OnComplete (() => Destroy (obj));
+			TailObjects.Add (obj);
+			obj.transform.DOScale (Vector3.zero, ScaleDownTime).OnComplete (() => {
+				TailObjects.Remove(obj);
+				Destroy (obj);
+			});
 		}
 	}
 }
