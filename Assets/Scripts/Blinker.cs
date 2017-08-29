@@ -11,6 +11,8 @@ public class Blinker : AAction {
 	public float BlinkSpeed = 3f;
 	public Color BlinkColor = Color.white;
 	public bool BlinkAtStart = true;
+	private string ColorParameter;
+	public bool Emit;
 
 	private Material mat;
 	private bool IsEmissiveAtStart;
@@ -24,10 +26,15 @@ public class Blinker : AAction {
 			mat = GetComponent<MeshRenderer> ().material;
 		}
 
-		IsEmissiveAtStart = mat.IsKeywordEnabled ("_EMISSION");
+		if (Emit) {
+			ColorParameter = "_EmissionColor";
+			IsEmissiveAtStart = mat.IsKeywordEnabled ("_EMISSION");
 
-		if (IsEmissiveAtStart) {
-			BlinkColor = mat.GetColor ("_EmissionColor");
+			if (IsEmissiveAtStart) {
+				BlinkColor = mat.GetColor ("_EmissionColor");
+			}
+		} else {
+			ColorParameter = "_Color";
 		}
 
 		if (BlinkAtStart)
@@ -35,7 +42,8 @@ public class Blinker : AAction {
 	}
 
 	public override void StartAction() {
-		mat.EnableKeyword("_EMISSION");
+		if(Emit)
+			mat.EnableKeyword("_EMISSION");
 		BlinkRoutine = Blink ();
 		StartCoroutine (BlinkRoutine);
 		isStarted = true;
@@ -44,8 +52,8 @@ public class Blinker : AAction {
 	public override void StopAction() {
 		if (isStarted) {
 			isStarted = false;
-			mat.SetColor ("_Color", BlinkColor);
-			if (!IsEmissiveAtStart) {
+			mat.SetColor (ColorParameter, BlinkColor);
+			if (!IsEmissiveAtStart && Emit) {
 				mat.DisableKeyword ("_EMISSION");
 			}
 			if (BlinkRoutine != null)
@@ -59,7 +67,7 @@ public class Blinker : AAction {
 
 			Color finalColor = BlinkColor * Mathf.LinearToGammaSpace (emission);
 
-			mat.SetColor ("_Color", finalColor);
+			mat.SetColor (ColorParameter, finalColor);
 
 			yield return new WaitForEndOfFrame ();
 		}
