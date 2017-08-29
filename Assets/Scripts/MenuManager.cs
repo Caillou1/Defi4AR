@@ -81,7 +81,7 @@ public class MenuManager : MonoBehaviour {
 
 	public void NextPage() {
 		if (CurrentPage < Pages.Length - 1) {
-			if (CurrentPage > 0) {
+			if (CurrentPage >= 0) {
 				var al = Pages [CurrentPage].GetComponent<ActionList> ();
 				if (al != null) {
 					al.StopActions ();

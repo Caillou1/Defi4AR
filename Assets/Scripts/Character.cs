@@ -11,6 +11,8 @@ public class Character : AAction {
 	public float TotalDuration;
 	public bool MoveAtStart;
 	public bool IsLooping;
+	public Ease EaseType;
+	public Vector3 ForwardVector;
 
 	private Vector3[] WaypointsPositions;
 	private Transform tf;
@@ -27,6 +29,12 @@ public class Character : AAction {
 			for (int i = 0; i < tf.childCount; i++) {
 				WaypointsPositions [i] = tf.GetChild (i).position;
 			}
+		} else {
+			WaypointsPositions = new Vector3[Waypoints.Length];
+
+			for (int i = 0; i < Waypoints.Length; i++) {
+				WaypointsPositions[i] = Waypoints [i].position;
+			}
 		}
 
 		if (MoveAtStart)
@@ -35,7 +43,8 @@ public class Character : AAction {
 
 	public override void StartAction ()
 	{
-		actionTweener = tf.DOPath (WaypointsPositions, TotalDuration, PathType.CatmullRom, PathMode.Full3D, 10).SetEase(Ease.Linear).OnComplete(() => {
+		tf.position = originPosition;
+		actionTweener = tf.DOPath (WaypointsPositions, TotalDuration, PathType.CatmullRom, PathMode.Full3D, 10).SetLookAt (.01f , ForwardVector, Vector3.up).SetEase(EaseType).OnComplete(() => {
 			if(IsLooping) {
 				StartAction();
 			} else {
