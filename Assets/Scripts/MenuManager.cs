@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 	private GameObject CurrentWindow;
@@ -9,6 +10,8 @@ public class MenuManager : MonoBehaviour {
 	private int CurrentPage;
 	private Transform tf;
 	private List<AAction> ActionsList;
+	private GameObject PreviousButton;
+	private GameObject NextButton;
 
 	public static MenuManager Instance;
 
@@ -41,6 +44,8 @@ public class MenuManager : MonoBehaviour {
 			CloseWindow ();
 			CurrentWindow = window;
 			CurrentWindow.SetActive (true);
+			PreviousButton = CurrentWindow.transform.Find ("LeftArrow").gameObject;
+			NextButton = CurrentWindow.transform.Find ("RightArrow").gameObject;
 			var pages = CurrentWindow.transform.Find ("Pages");
 			Pages = new GameObject[pages.childCount - 1];
 
@@ -56,6 +61,7 @@ public class MenuManager : MonoBehaviour {
 			if (al != null)
 				al.StartActions ();
 			CurrentPage = 0;
+			PreviousButton.SetActive (false);
 		} else {
 			var al = Pages [CurrentPage].GetComponent<ActionList> ();
 			if(al != null) al.StartActions ();
@@ -85,6 +91,16 @@ public class MenuManager : MonoBehaviour {
 			CurrentPage++;
 			Pages [CurrentPage].SetActive (true);
 
+			if (CurrentPage == Pages.Length - 1)
+				NextButton.SetActive (false);
+			else
+				NextButton.SetActive (true);
+
+			if (CurrentPage == 0)
+				PreviousButton.SetActive (false);
+			else
+				PreviousButton.SetActive (true);
+
 			var al2 = Pages [CurrentPage].GetComponent<ActionList> ();
 			if (al2 != null)
 				al2.StartActions ();
@@ -102,6 +118,16 @@ public class MenuManager : MonoBehaviour {
 
 			Pages [CurrentPage].SetActive (false);
 			CurrentPage--;
+
+			if (CurrentPage == Pages.Length - 1)
+				NextButton.SetActive (false);
+			else
+				NextButton.SetActive (true);
+
+			if (CurrentPage == 0)
+				PreviousButton.SetActive (false);
+			else
+				PreviousButton.SetActive (true);
 
 			var al2 = Pages [CurrentPage].GetComponent<ActionList> ();
 			if (al2 != null)
