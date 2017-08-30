@@ -5,12 +5,15 @@ using UnityEngine;
 public class Rotator : AAction {
 	public float RotationSpeed;
 	public Vector3 RotationVector;
+	public bool RotateAtStart;
 
 	private Transform tf;
 	private bool Rotating;
 
 	void Start() {
 		tf = transform;
+		if (RotateAtStart)
+			StartAction ();
 	}
 
 	public override void StartAction ()
