@@ -19,6 +19,10 @@ public class Character : AAction {
 	private Tweener actionTweener;
 	private Vector3 originPosition;
 
+	private SkinnedMeshRenderer smr;
+	private MeshRenderer mr;
+	private bool running;
+
 	void Start () {
 		tf = transform;
 		originPosition = tf.position;
@@ -37,27 +41,60 @@ public class Character : AAction {
 			}
 		}
 
+		mr = tf.GetComponentInChildren<MeshRenderer> ();
+		smr = tf.GetComponentInChildren<SkinnedMeshRenderer> ();
+
 		if (MoveAtStart)
 			StartAction ();
 	}
 
 	public override void StartAction ()
 	{
+		if (!running) {
+			running = true;
+			StartCoroutine (CheckDisabled ());
+		}
 		tf.position = originPosition;
 		actionTweener = tf.DOPath (WaypointsPositions, TotalDuration, PathType.CatmullRom, PathMode.Full3D, 10).SetLookAt (.01f , ForwardVector, Vector3.up).SetEase(EaseType).OnComplete(() => {
-			if(IsLooping) {
+			if(IsLooping && running) {
 				StartAction();
 			} else {
-				StopAction();
+				Stop();
 			}
 		});
 	}
 
 	public override void StopAction ()
 	{
-		if (actionTweener != null) {
-			actionTweener.Complete ();
+		/*if (actionTweener != null) {
+			running = false;
+			actionTweener.Kill ();
 			tf.position = originPosition;
+		}*/
+	}
+
+	void Stop() {
+		if (actionTweener != null) {
+			running = false;
+			actionTweener.Kill ();
+			tf.position = originPosition;
+		}
+	}
+
+	IEnumerator CheckDisabled() {
+		while (running) {
+			if (smr != null) {
+				if (!smr.enabled) {
+					Stop ();
+				}
+			}
+
+			if (mr != null) {
+				if (!mr.enabled) {
+					Stop ();
+				}
+			}
+			yield return new WaitForEndOfFrame ();
 		}
 	}
 }

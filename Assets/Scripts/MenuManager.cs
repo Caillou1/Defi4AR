@@ -39,6 +39,10 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("Main");
 	}
 
+	public void LoadMenu() {
+		SceneManager.LoadScene ("Menu");
+	}
+
 	public void ShowWindow(GameObject window) {
 		if (CurrentWindow != window) {
 			CloseWindow ();
@@ -62,6 +66,7 @@ public class MenuManager : MonoBehaviour {
 				al.StartActions ();
 			CurrentPage = 0;
 			PreviousButton.SetActive (false);
+			NextButton.SetActive (Pages.Length > 1);
 		} else {
 			var al = Pages [CurrentPage].GetComponent<ActionList> ();
 			if(al != null) al.StartActions ();
