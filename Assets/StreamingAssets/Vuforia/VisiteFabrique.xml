@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="6-securiteincendie" size="1.000000 1.000000" />
-    <ImageTarget name="8ParvisIntermodalite" size="1.000000 1.000000" />
-    <ImageTarget name="7EspacesAccueil" size="1.000000 1.000000" />
-    <ImageTarget name="5CirculationsVerticales" size="1.000000 1.000000" />
-    <ImageTarget name="4Accessibilite" size="1.000000 1.000000" />
-    <ImageTarget name="3RealiteAugmentee" size="1.000000 1.000000" />
-    <ImageTarget name="2BIM" size="1.000000 1.000000" />
-    <ImageTarget name="1Accueil" size="1.000000 1.000000" />
+    <ImageTarget name="8ParvisIntermodalite" size="1.000000 1.417508" />
+    <ImageTarget name="7EspacesAccueil" size="1.000000 1.417508" />
+    <ImageTarget name="6SecuriteIncendie" size="1.000000 1.417508" />
+    <ImageTarget name="5CirculationsVerticales" size="1.000000 1.417508" />
+    <ImageTarget name="4Accessibilite" size="1.000000 1.417508" />
+    <ImageTarget name="3RealiteAugmentee" size="1.000000 1.417508" />
+    <ImageTarget name="2BIM" size="1.000000 1.417508" />
+    <ImageTarget name="1Accueil" size="1.000000 1.417508" />
   </Tracking>
 </QCARConfig>
