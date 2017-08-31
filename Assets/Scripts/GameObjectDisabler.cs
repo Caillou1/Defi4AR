@@ -30,11 +30,11 @@ public class GameObjectDisabler : AAction {
 
 	public override void StartAction ()
 	{
-		if (!running) {
-			running = true;
-			actionCoroutine = Disabler ();
-			StartCoroutine (actionCoroutine);
-		}
+		foreach (var o in ToDisable)
+			o.SetActive (true);
+		running = true;
+		actionCoroutine = Disabler ();
+		StartCoroutine (actionCoroutine);
 	}
 
 	public override void StopAction ()
